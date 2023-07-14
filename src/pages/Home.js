@@ -1,9 +1,9 @@
 import React from 'react';
+import BookList from '../components/BookList';
 
 const Home = () => (
     <div>
-        <h1>Home</h1>
-        <p>Book Store</p>
+        <BookList />
     </div>
 );
 
