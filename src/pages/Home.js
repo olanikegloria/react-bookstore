@@ -1,34 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
 import BookList from '../components/BookList';
 import AddBook from '../components/AddBook';
-
+import { useSelector} from 'react-redux'
 const Home = () => {
-  const [books, setState] = useState([
-    { id: 0, title: 'The Lord of the Rings', author: 'J.R.R. Tolkien' },
-    { id: 1, title: 'The Hobbit', author: 'J.R.R. Tolkien' },
-    { id: 2, title: 'The Silmarillion', author: 'J.R.R. Tolkien' },
-  ]);
-
-  const handleDelete = (id) => {
-    console.log('Hello', id);
-    setState(books.filter((book) => book.id !== id));
-  };
-  
+  const { books } = useSelector((store) => store.book)
+  console.log(books)
   return (
     <>
       {books.map((book) => (
-        <BookList 
-          key={book.id} 
-          id={book.id} 
-          title={book.title} 
-          author={book.author} 
-          deleteBook={() => handleDelete(book.id)}
+        <BookList
+          key={book.id}
+          id={book.id}
+          title={book.title}
+          author={book.author}
         />
       ))}
       <AddBook />
     </>
   )
 }
-
-export default Home
+export default Home;

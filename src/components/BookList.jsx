@@ -1,6 +1,9 @@
 import React from 'react';
+import { removeItem } from '../redux/books/bookSlice'
+// import { useDispatch } from 'react-redux';
+import {store} from '../redux/store'
 
-const BookList = ({ editBook, deleteBook, id, title, author }) => {
+const BookList = ({ editBook, id, title, author }) => {
 
   return (
     <div>
@@ -9,7 +12,7 @@ const BookList = ({ editBook, deleteBook, id, title, author }) => {
         <li key={id}>
           <h2>{title}</h2>
           <p>{author}</p>
-          <button onClick={deleteBook}>Remove</button>
+          <button onClick={ store.dispatch(removeItem(id))}>Remove</button>
           <button onClick={editBook}>Edit</button>
         </li>
       </ul>
