@@ -1,9 +1,15 @@
 import React from 'react';
+// import {  useDispatch } from 'react-redux'
+// import { status } from '../redux/categories/categoriesSlice';
 
-const Categories = () => (
-  <div>
-    <h1>Categories</h1>
-  </div>
-);
+// const dispatch = useDispatch();
+const Categories = () => {
+  // const { category } = useSelector((store) => store.category)
+  return (
+    <div>
+      <h1>Under Construction</h1>
+    </div>
+  )
+};
 
 export default Categories;
