@@ -3,15 +3,15 @@ import { addItem } from '../redux/books/bookSlice';
 import { useDispatch } from 'react-redux';
 
 function AddBook() {
-
   const [authInput, setAuthIput] = useState("")
   const [titleinput, setTitleIput] = useState("")
+  const [bookcategory, setCategory] = useState("")
 
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addItem(
-      { title: authInput, author: titleinput }
+      { title: authInput, author: titleinput, category:bookcategory }
     ));
   }
 
@@ -19,8 +19,9 @@ function AddBook() {
     <div>
       <form onSubmit={handleSubmit}>
         <input type='text' placeholder='Author' onChange={(event) => setAuthIput(event.target.value)} />
-        <select>
-          <option>Category</option>
+        <select onClick={(event) => setCategory(event.target.value)} >
+          <option>fiction</option>
+          <option>drama</option>
         </select>
         <input type='text' placeholder='add book title' name="title" onChange={(event) => setTitleIput(event.target.value)} />
         <button type='submit'>Add</button>
