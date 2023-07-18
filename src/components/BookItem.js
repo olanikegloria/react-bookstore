@@ -1,7 +1,23 @@
-const books = [
-    { id: 0, title: 'The Lord of the Rings', author: 'J.R.R. Tolkien' },
-    { id: 1, title: 'The Hobbit', author: 'J.R.R. Tolkien' },
-    { id: 2, title: 'The Silmarillion', author: 'J.R.R. Tolkien' }
-];
+const books = // Initial state:
+    [
+        {
+            "id": "item1",
+            "title": "The Great Gatsby",
+            "author": "John Smith",
+            "category": "Fiction"
+        },
+        {
+            "id": "item2",
+            "title": "Anna Karenina",
+            "author": "Leo Tolstoy",
+            "category": "Fiction"
+        },
+        {
+            "id": "item3",
+            "title": "The Selfish Gene",
+            "author": "Richard Dawkins",
+            "category": "Nonfiction"
+        }
+    ]
 
 export default books
