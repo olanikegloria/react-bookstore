@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import books from '../../components/BookItem';
 
 const initialstate = {
     category: [],
