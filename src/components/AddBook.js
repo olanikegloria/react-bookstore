@@ -12,8 +12,8 @@ function AddBook() {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-   dispatch(addBooks(
-      { title: authInput, author: titleinput, category:bookcategory }
+       dispatch(addBooks(
+         { title: authInput, author: titleinput, category:bookcategory }
     ));
   }
 
