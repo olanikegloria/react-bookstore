@@ -60,6 +60,7 @@ const bookSlice = createSlice({
             .addCase(addBooks.pending, (state) => {
                 state.isLoading = true;
             })
+            
             .addCase(addBooks.fulfilled, (state, action) => {
                 console.log(state.books);
                 let previousArr;
