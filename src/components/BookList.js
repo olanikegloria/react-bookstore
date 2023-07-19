@@ -3,8 +3,8 @@ import { removeItem } from '../redux/books/bookSlice'
 import { useDispatch } from 'react-redux';
 // import {store} from '../redux/store'
 
-const BookList = ({ editBook, id, title, author , category}) => {
-const dispatch = useDispatch();
+const BookList = ({ editBook, id, title, author, category }) => {
+  const dispatch = useDispatch();
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id));
   }
@@ -16,7 +16,7 @@ const dispatch = useDispatch();
         <li key={id}>
           <h2>{title}</h2>
           <p>{author}</p>
-          <p>{category }</p>
+          <p>{category}</p>
           <button
             onClick={() => handleRemoveItem(id)}
           >Remove</button>
