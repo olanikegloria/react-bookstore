@@ -10,17 +10,17 @@ const Home = () => {
       <>
         <h1>Book List</h1>
         {Object.keys(books).map((book) => (
-          <>
+          <div key={Math.random().toString() + new Date().toISOString()}>
             {books[book].map(item => (
               <BookList
-                key={item.id}
+                key={Math.random().toString() + new Date().toISOString()}
                 id={item.id}
                 title={item.title}
                 author={item.author}
                 category={item.category}
               />
             ))}
-          </>
+          </div>
         ))}
         <AddBook />
       </>
