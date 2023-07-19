@@ -9,7 +9,6 @@ const BookList = ({ editBook, id, title, author, category }) => {
     dispatch(removeItem(id));
   }
 
-
   return (
     <div>
       <ul>
