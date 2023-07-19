@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import { addItem } from '../redux/books/bookSlice';
-import { useDispatch } from 'react-redux';
+import { addBooks } from '../redux/books/bookSlice';
+import { store } from '../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 function AddBook() {
   const [authInput, setAuthIput] = useState("")
@@ -10,7 +12,7 @@ function AddBook() {
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addItem(
+   dispatch(addBooks(
       { title: authInput, author: titleinput, category:bookcategory }
     ));
   }
