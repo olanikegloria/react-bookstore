@@ -13,7 +13,7 @@ const Home = () => {
           <>
             {books[book].map(item => (
               <BookList
-                key={item.id}
+                key={Math.random().toString() + new Date().toISOString()}
                 id={item.id}
                 title={item.title}
                 author={item.author}
