@@ -14,7 +14,7 @@ const Home = () => {
             {books[book].map(item => (
               <BookList
                 key={Math.random().toString() + new Date().toISOString()}
-                id={item.id}
+                id={Math.random().toString() + new Date().toISOString()}
                 title={item.title}
                 author={item.author}
                 category={item.category}

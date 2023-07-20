@@ -1,12 +1,13 @@
 import React from 'react';
-import { removeItem } from '../redux/books/bookSlice'
+import { deleteBook} from '../redux/books/bookSlice'
 import { useDispatch } from 'react-redux';
 // import {store} from '../redux/store'
 
 const BookList = ({ editBook, id, title, author, category }) => {
   const dispatch = useDispatch();
   const handleRemoveItem = (id) => {
-    dispatch(removeItem(id));
+    dispatch(deleteBook(id));
+    console.log(id)
   }
 
   return (
