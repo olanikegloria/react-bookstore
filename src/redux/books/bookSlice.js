@@ -30,13 +30,11 @@ export const addBooks = createAsyncThunk('books/addBook',
         }
     });
 
-export const deleteBook = createAsyncThunk('books/deleteBook', async (book) => {
-    const deleteurl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Pv07lkhuAJvBV0UHCald/books/${book.item_id}`;
+export const deleteBook = createAsyncThunk('books/deleteBook', async(id) => {
+    const deleteurl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Pv07lkhuAJvBV0UHCald/books/${id}`;
     try {
-        const response = await axios.delete(deleteurl, {
-            item_id: book.item_id,
-        });
-        return{ book, response: response.data }
+          await axios.delete(deleteurl);
+          return id
     } catch (error) {
         throw new Error('Failed to delete book');
     }
@@ -64,6 +62,7 @@ const bookSlice = createSlice({
             .addCase(getBooks.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.books = action.payload;
+                console.log(action.payload);
             })
 
             .addCase(getBooks.rejected, (state, action) => {
