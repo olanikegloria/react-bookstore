@@ -1,26 +1,25 @@
 import React from 'react';
-import { removeItem } from '../redux/books/bookSlice'
+import { deleteBook, getBooks} from '../redux/books/bookSlice'
 import { useDispatch } from 'react-redux';
-// import {store} from '../redux/store'
 
-const BookList = ({ editBook, id, title, author , category}) => {
-const dispatch = useDispatch();
-  const handleRemoveItem = (id) => {
-    dispatch(removeItem(id));
+const BookList = ({ book, id }) => {
+  const dispatch = useDispatch();
+  const handleRemoveItem = async (item, id) => {
+    await dispatch(deleteBook({item, id}));
+    await dispatch(getBooks());
   }
-
 
   return (
     <div>
       <ul>
         <li key={id}>
-          <h2>{title}</h2>
-          <p>{author}</p>
-          <p>{category }</p>
+          <h2>{book.title}</h2>
+          <p>{book.author}</p>
+          <p>{book.category}</p>
           <button
-            onClick={() => handleRemoveItem(id)}
+            onClick={() => handleRemoveItem(book, id)}
           >Remove</button>
-          <button onClick={editBook}>Edit</button>
+          <button>Edit</button>
         </li>
       </ul>
     </div>

@@ -1,17 +1,29 @@
 import React, { useState } from 'react'
-import { addItem } from '../redux/books/bookSlice';
-import { useDispatch } from 'react-redux';
+import { addBooks } from '../redux/books/bookSlice';
+import { store } from '../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+
+console.log(useSelector);
+console.log(store)
+
 
 function AddBook() {
-  const [authInput, setAuthIput] = useState("")
-  const [titleinput, setTitleIput] = useState("")
-  const [bookcategory, setCategory] = useState("")
+  const [authInput, setAuthIput] = useState("");
+  const [titleinput, setTitleIput] = useState("");
+  const [bookcategory, setCategory] = useState("");
+
+
 
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addItem(
-      { title: authInput, author: titleinput, category:bookcategory }
+    dispatch(addBooks(
+      {
+        title: authInput,
+        author: titleinput,
+        category: bookcategory,
+        item_id: new Date().toISOString() + Math.random().toString()
+      }
     ));
   }
 
