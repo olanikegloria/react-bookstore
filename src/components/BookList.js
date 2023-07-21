@@ -1,15 +1,12 @@
 import React from 'react';
 import { deleteBook, getBooks} from '../redux/books/bookSlice'
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 const BookList = ({ book, id }) => {
   const dispatch = useDispatch();
   const handleRemoveItem = async (item, id) => {
-    await dispatch(deleteBook({ item, id }));
-    await useEffect(() => {
-      dispatch(getBooks())
-    }, [])
+    await dispatch(deleteBook({item, id}));
+    await dispatch(getBooks());
   }
 
   return (
